@@ -1,4 +1,4 @@
-{
+{ 
   "config": {
     "n_episodes": 150,
     "q_per_episode": 30,
