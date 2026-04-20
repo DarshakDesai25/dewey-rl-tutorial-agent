@@ -2,7 +2,7 @@
 environment.py
 ==============
 Simulated Student Environment for the Dewey RL Tutorial Agent.
-
+ 
 The student model is grounded in Vygotsky's Zone of Proximal Development (ZPD):
 learning is maximized when difficulty is slightly above current mastery.
 """
