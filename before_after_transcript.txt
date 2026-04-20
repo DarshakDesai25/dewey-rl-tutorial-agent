@@ -1,0 +1,44 @@
+======================================================================
+BEFORE/AFTER: Random Agent vs Trained PPO+UCB Agent
+(Fresh student, identical starting conditions, 12 questions each)
+======================================================================
+
+── BEFORE: Random Agent ──────────────────────────────────────────
+  Q01. data_structures         diff=0.6  ✓  gain=0.0106  zpd=0.16
+  Q02. recursion               diff=0.2  ✗  gain=0.0234  zpd=0.97
+  Q03. recursion               diff=0.4  ✗  gain=0.0176  zpd=0.75
+  Q04. variables_and_types     diff=0.6  ✓  gain=0.0057  zpd=0.08
+  Q05. error_handling          diff=0.4  ✗  gain=0.0135  zpd=0.53
+  Q06. recursion               diff=1.0  ✗  gain=0.0010  zpd=0.00
+  Q07. object_oriented         diff=0.4  ✗  gain=0.0136  zpd=0.54
+  Q08. control_flow            diff=0.2  ✗  gain=0.0243  zpd=0.99
+  Q09. data_structures         diff=1.0  ✗  gain=0.0010  zpd=0.00
+  Q10. recursion               diff=0.4  ✓  gain=0.0530  zpd=0.81
+  Q11. recursion               diff=1.0  ✗  gain=0.0010  zpd=0.00
+  Q12. control_flow            diff=0.2  ✗  gain=0.0230  zpd=0.96
+
+  Total gain=0.1877   Final mastery=0.1423
+
+── AFTER:  Trained PPO+UCB Agent ────────────────────────────────
+  Q01. variables_and_types     diff=0.8  ✗  gain=0.0010  zpd=0.01
+  Q02. object_oriented         diff=0.4  ✗  gain=0.0138  zpd=0.55
+  Q03. object_oriented         diff=0.4  ✗  gain=0.0147  zpd=0.59
+  Q04. object_oriented         diff=0.4  ✗  gain=0.0157  zpd=0.64
+  Q05. object_oriented         diff=0.4  ✓  gain=0.0475  zpd=0.70
+  Q06. object_oriented         diff=0.4  ✗  gain=0.0190  zpd=0.84
+  Q07. object_oriented         diff=0.4  ✗  gain=0.0196  zpd=0.89
+  Q08. object_oriented         diff=0.4  ✗  gain=0.0200  zpd=0.93
+  Q09. object_oriented         diff=0.4  ✓  gain=0.0578  zpd=0.97
+  Q10. object_oriented         diff=0.4  ✗  gain=0.0193  zpd=1.00
+  Q11. object_oriented         diff=0.4  ✗  gain=0.0185  zpd=0.99
+  Q12. object_oriented         diff=0.4  ✗  gain=0.0176  zpd=0.96
+
+  Total gain=0.2644   Final mastery=0.1555
+
+  📈 Learning gain: +40.9% vs random baseline
+
+  Key observable differences:
+  • PPO learned to avoid topics already mastered, focus on weakest
+  • UCB converged difficulty to the ZPD sweet spot per topic
+  • BKT-calibrated state gives PPO robust signal (not noisy raw acc)
+  • Combined: more interactions in ZPD → faster knowledge growth
